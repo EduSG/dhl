@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/login.css">
+</head>
+
+<body>
+    <section class="login-mobile">
+        <div class="wrapper_image">
+            <img src="./src/img/dhl-logo.png" alt="">
+        </div>
+        <div class="wrapper_entrar">
+            <p>Entrar</p>
+        </div>
+        <div class="secao_formulario">
+            <div class="wrapper_input">
+                <div class="title_input">
+                    <p class="icon"><i class='bx bx-user'></i></p>
+                    <p>Usuário</p>
+                </div>
+                <input type="text" name="" id="usuario_mobile">
+            </div>
+            <div class="wrapper_input">
+                <div class="title_input">
+                    <p class="icon"><i class='bx bx-lock-alt'></i></p>
+                    <p>Senha</p>
+                </div>
+                <input type="password" name="" id="senha_mobile">
+            </div>
+        </div>
+        <div class="btn">Entrar</div>
+    </section>
+    <section class="login_web">
+        <div class="img">
+        </div>
+        <div class="login_web_form">
+            <div class="lw_img">
+                <img src="./src/img/dhl-white 1.png" alt="">
+            </div>
+            <div class="lw_entrar">
+                Entrar
+            </div>
+            <div class="lw_inputs">
+                <div class="lwi">
+                    <div class="lwi_nome">Usuário</div>
+                    <input class="input_web_style" type="text" name="" id="usuario_web">
+                </div>
+                <div class="lwi">
+                    <div class="lwi_nome">Senha</div>
+                    <input class="input_web_style" type="password" name="" id="senha_web">
+                </div>
+            </div>
+            <div class="btn_entrar">
+                Entrar
+            </div>
+        </div>
+    </section>
+    <script>
+        const usuario_mobile = document.querySelector('#usuario_mobile');
+        const senha_mobile = document.querySelector('#senha_mobile');
+        const usuario_web = document.querySelector('#usuario_web');
+        const senha_web = document.querySelector('#senha_web');
+
+        document.querySelector('.btn').addEventListener('click', e => {
+            const objeto_validacao = {
+                'usuario': usuario_mobile.value,
+                'senha': senha_mobile.value
+            };
+            valida_login(objeto_validacao);
+        });
+
+        document.querySelector('.btn_entrar').addEventListener('click', e => {
+            const objeto_validacao = {
+                'usuario': usuario_web.value,
+                'senha': senha_web.value
+            };
+            valida_login(objeto_validacao);
+        });
+
+        const valida_login = (dados) => {
+            const usuario = dados['usuario'];
+            const senha = dados['senha']
+
+            const validar = (json_validacao[usuario] || null);
+            if (validar === null) {
+                window.alert('Usuário ou senha inválidos!');
+                return;
+            } else {
+                if (usuario === validar['usuario'] && senha === validar['senha']) {
+                    window.alert('Bem vindo ao sistema de formulário DHL!');
+                    window.location.replace('http://127.0.0.1:5500/formulario.html');
+                } else {
+                    window.alert('Usuário ou senha inválidos!')
+                    return;
+                }
+            }
+
+        };
+        const json_validacao = {
+            'eduardo': {
+                'usuario': 'eduardo',
+                'senha': 'eduardo123'
+            }
+        }
+    </script>
+</body>
+
+</html>
