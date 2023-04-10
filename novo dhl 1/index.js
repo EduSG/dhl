@@ -34,11 +34,10 @@
 
 
 
+const { google } = import('googleapis');
+const keys = import('./credentials.json');
+
 function procuraInfos(valor) {
-
-  const { google } = require('googleapis');
-  const keys = require('./credentials.json');
-
   const client = new google.auth.JWT(
     keys.client_email,
     null,
@@ -69,6 +68,4 @@ function procuraInfos(valor) {
       console.log(`Não foi possível encontrar a placa ${searchValue}`);
     }
   });
-
 }
-

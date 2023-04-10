@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://apis.google.com/js/api.js"></script>
 
     <title>Pesquisa placa</title>
     <link rel="stylesheet" href="./src/pesquisa.css">
@@ -53,8 +52,49 @@
 
         </div>
     </div>
-    <script src="./novo dhl 1/index.js"></script>
-    <script>
+
+
+    <script type="module">
+        async function procuraInfos(valor) {
+            const script = document.createElement('script');
+            script.src = 'https://apis.google.com/js/api.js';
+            script.onload = async () => {
+                const { google } = await import('googleapis');
+                const keys = await import('./novo dhl 1/credentials.json');
+                const client = new google.auth.JWT(
+                    keys.client_email,
+                    null,
+                    keys.private_key,
+                    ['https://www.googleapis.com/auth/spreadsheets']
+                );
+
+                const spreadsheetId = '1TsYHgoWVp8JMzyioWMWQGe-ueGpus0WEDkYdgsKzSno';
+                const range = 'A1:AL';
+
+                const response = await google.sheets({ version: 'v4', auth: client }).spreadsheets.values.get({
+                    spreadsheetId,
+                    range,
+                });
+
+                const rows = response.data.values;
+                const searchValue = valor;
+                const columnIndexF = 5; // Coluna F
+                const columnIndexes = [34, 35, 36, 37]; // Colunas AI a AL
+                const row = rows.find(row => row[columnIndexF] === searchValue);
+
+                if (row) {
+                    const values = columnIndexes.reduce((obj, index) => {
+                        obj[index] = row[index];
+                        return obj;
+                    }, {});
+                    console.log(`Os valores de AI a AL para a placa ${searchValue} são:`, values);
+                } else {
+                    console.log(`Não foi possível encontrar a placa ${searchValue}`);
+                }
+            };
+
+        }
+
         const placa_web = document.querySelector('#input_text_web');
         const placa_mobile = document.querySelector('#input_text_mobile');
         const pesquisa_web = document.querySelector('.pesquisa_web')
@@ -66,14 +106,19 @@
         function none_flex(elemento_none, elemento_flex) {
             elemento_none.style.display = none;
             elemento_flex.style.display = flex;
-            procuraInfos(placa_web.value)
         }
 
         const procurar_web = document.querySelector('.entrar')
-        procurar_web.addEventListener('click', e => { none_flex(pesquisa_web, infos_recebidas) });
+        procurar_web.addEventListener('click', e => {
+            none_flex(pesquisa_web, infos_recebidas);
+            procuraInfos(placa_web.value);
+        });
 
         const procurar_mobile = document.querySelector('.wi_btn')
-        procurar_mobile.addEventListener('click', e => { none_flex(pesquisa_mobile, infos_recebidas) });
+        procurar_mobile.addEventListener('click', e => {
+            none_flex(pesquisa_mobile, infos_recebidas);
+            procuraInfos(placa_mobile.value);
+        });
 
         const voltar = document.querySelector('.voltar');
         voltar.addEventListener('click', e => {
@@ -86,6 +131,8 @@
             }
         });
     </script>
+
+
 </body>
 
 </html>
