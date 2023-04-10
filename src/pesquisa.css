@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 
-body{
+.infos_recebidas{
+    display: none;
+}
+
+body {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -17,18 +21,18 @@ body{
     background-position-y: -225px;
 }
 
-.pesquisa_web{
+.pesquisa_web {
     display: none;
 }
 
-.wrapper_image > img{
+.wrapper_image>img {
     display: flex;
     width: 70%;
     margin: 0 auto;
     margin-top: 6vh;
 }
 
-.pesquise_texto{
+.pesquise_texto {
     display: flex;
     color: #fff;
     font-weight: 700;
@@ -40,7 +44,7 @@ body{
     justify-content: center;
 }
 
-.wrapper_input{
+.wrapper_input {
     display: flex;
     margin: 0 auto;
     justify-content: center;
@@ -51,7 +55,7 @@ body{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.wrapper_input > input{
+.wrapper_input>input {
     display: flex;
     border: none;
     height: 7vh;
@@ -63,11 +67,11 @@ body{
 
 }
 
-input:focus{
-  outline: none;
+input:focus {
+    outline: none;
 }
 
-.wi_btn{
+.wi_btn {
     display: flex;
     height: 7vh;
     background-color: #fff;
@@ -80,7 +84,7 @@ input:focus{
     color: #9b9b9b;
 }
 
-.btn_preenche{
+.btn_preenche {
     display: flex;
     width: 85%;
     background-color: #fff;
@@ -97,29 +101,65 @@ input:focus{
     transition: all .2s;
 }
 
-.btn_preenche:hover{
+.btn_preenche:hover {
     transform: scale(1.05);
 }
 
+.infos_recebidas {
+    display: none;
+    width: 85vw;
+    height: 90vh;
+    border-radius: 6px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper_infos_recebidas {
+    display: flex;
+    background-color: #fff;
+    height: 53vh;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 3vh;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.voltar {
+    font-size: clamp(2rem, 2.4vw, 3rem);
+    color: #fff;
+    font-weight: bold;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 95%;
+}
+
 @media only screen and (min-width: 600px) {
-    .pesquisa_mobile{
+    .pesquisa_mobile {
         display: none;
     }
 
-    .pesquisa_web{
+    .pesquisa_web {
         display: flex;
         width: 100%;
         align-items: center;
         flex-direction: column;
     }
 
-    .wrapper_logo > img{
+    .wrapper_logo>img {
         width: 20vw;
         margin-top: 7.5vh;
-    
+
     }
-    
-    .wrapper_pesquisa{
+
+    .wrapper_pesquisa {
         display: flex;
         background-color: #fff;
         width: 60vw;
@@ -128,7 +168,7 @@ input:focus{
         margin-top: 6vh;
     }
 
-    .wrapper_pesquisa > input{
+    .wrapper_pesquisa>input {
         width: 90%;
         border: none;
         border-bottom-left-radius: 10px;
@@ -138,7 +178,7 @@ input:focus{
 
     }
 
-    .wrapper_pesquisa > .entrar{
+    .wrapper_pesquisa>.entrar {
         display: flex;
         width: 10%;
         align-items: center;
@@ -148,7 +188,7 @@ input:focus{
         font-weight: bold;
     }
 
-    .preencher_formulario_web{
+    .preencher_formulario_web {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -164,8 +204,41 @@ input:focus{
         transition: all .2s;
     }
 
-    .preencher_formulario_web:hover{
+    .preencher_formulario_web:hover {
         transform: scale(1.1);
     }
 
+    .infos_recebidas {
+        display: none;
+        width: 42vw;
+        height: 90vh;
+        border-radius: 6px;
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper_infos_recebidas {
+        display: flex;
+        background-color: #fff;
+        height: 53vh;
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 3vh;
+    }
+
+    .voltar {
+        font-size: clamp(2rem, 2.4vw, 3rem);
+        color: #fff;
+        font-weight: bold;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 95%;
+    }
 }

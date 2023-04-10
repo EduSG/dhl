@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://apis.google.com/js/api.js"></script>
+
     <title>Pesquisa placa</title>
     <link rel="stylesheet" href="./src/pesquisa.css">
 </head>
+
 <body>
     <section class="pesquisa_mobile">
         <div class="wrapper_image">
@@ -18,8 +22,8 @@
                 Pesquise uma placa
             </p>
             <div class="wrapper_input">
-                <input type="text" name="" id="">
-                <div class="wi_btn"><i class='bx bx-search' ></i></div>
+                <input type="text" name="" id="input_text_mobile">
+                <div class="wi_btn"><i class='bx bx-search'></i></div>
             </div>
             <div class="btn_preenche">
                 Preencher formulário
@@ -31,12 +35,57 @@
             <img src="./src/img/dhl-white 1.png" alt="">
         </div>
         <div class="wrapper_pesquisa">
-            <input type="text">
+            <input id="input_text_web" type="text">
             <div class="entrar"><i class='bx bx-search'></i></div>
         </div>
         <div class="preencher_formulario_web">
-            Preencer formulário
+            Preencher formulário!
         </div>
     </section>
+
+
+    <div class="infos_recebidas">
+        <div class="voltar">&lArr;</div>
+        <div class="wrapper_logo">
+            <img src="./src/img/dhl-white 1.png" alt="">
+        </div>
+        <div class="wrapper_infos_recebidas">
+
+        </div>
+    </div>
+    <script src="./novo dhl 1/index.js"></script>
+    <script>
+        const placa_web = document.querySelector('#input_text_web');
+        const placa_mobile = document.querySelector('#input_text_mobile');
+        const pesquisa_web = document.querySelector('.pesquisa_web')
+        const pesquisa_mobile = document.querySelector('.pesquisa_mobile')
+        const infos_recebidas = document.querySelector('.infos_recebidas')
+        const none = 'none';
+        const flex = 'flex';
+
+        function none_flex(elemento_none, elemento_flex) {
+            elemento_none.style.display = none;
+            elemento_flex.style.display = flex;
+            procuraInfos(placa_web.value)
+        }
+
+        const procurar_web = document.querySelector('.entrar')
+        procurar_web.addEventListener('click', e => { none_flex(pesquisa_web, infos_recebidas) });
+
+        const procurar_mobile = document.querySelector('.wi_btn')
+        procurar_mobile.addEventListener('click', e => { none_flex(pesquisa_mobile, infos_recebidas) });
+
+        const voltar = document.querySelector('.voltar');
+        voltar.addEventListener('click', e => {
+            const width = window.innerWidth;
+            if (width < 600) {
+                none_flex(infos_recebidas, pesquisa_mobile);
+            } else {
+                none_flex(infos_recebidas, pesquisa_web);
+
+            }
+        });
+    </script>
 </body>
+
 </html>

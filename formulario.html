@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <script src="https://apis.google.com/js/api.js"></script>
 
 </head>
+
 <body>
     <nav>
         <img src="./src/img/dhl-white 1.png" alt="">
@@ -23,65 +25,163 @@
         <div class="formulario">
             <div class="finput">
                 <div class="fi_nome">Hub de carregamento</div>
-                <select class="maimo" name="" id="">
-
+                <select class="maimo" name="" id="hub_mobile">
+                    <option value="eduardo">eduardo</option>
                 </select>
             </div>
             <div class="finput">
                 <div class="fi_nome">Nome completo do motorista</div>
-                <input class="maimo" type="text">
+                <input id='nome_mobile' class="maimo" type="text">
             </div>
             <div class="finput">
                 <div class="fi_nome">CPF do motorista</div>
-                <input class="maimo" type="text">
+                <input id='cpf_mobile' class="maimo" type="text">
             </div>
             <div class="finput">
                 <div class="fi_nome">Telefone do motorista</div>
-                <input class="maimo" type="text">
+                <input id='telefone_mobile' class="maimo" type="text">
             </div>
             <div class="finput">
                 <div class="fi_nome">Qual o tipo do veículo?</div>
                 <div class="chech_wrapper">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="passeio_check_mobile">
                     <p class="che_nome">Veículo de passeio</p>
                 </div>
                 <div class="chech_wrapper">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="utilitario_check_mobile">
                     <p class="che_nome">Utilitário</p>
                 </div>
             </div>
             <div class="finput">
                 <div class="fi_nome">Placa do veículo</div>
-                <input class="maimo" type="text">
+                <input id='placa_mobile' class="maimo" type="text">
             </div>
             <div class="finput">
                 <div class="fi_nome">Ano do veículo</div>
-                <input class="maimo" type="text">
+                <input id='ano_mobile' class="maimo" type="text">
             </div>
             <div class="finput">
                 <div class="fi_nome">Nome de um Contato</div>
-                <input class="maimo" type="text">
+                <input id='nome_contato_mobile' class="maimo" type="text">
             </div>
             <div class="finput">
                 <div class="fi_nome">Telefone do Contato</div>
-                <input class="maimo" type="text">
+                <input id='telefone_contato_mobile' class="maimo" type="text">
             </div>
             <div class="finput">
                 <div class="fi_nome">Com ou Sem EAR na CNH</div>
                 <div class="chech_wrapper">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="sem_ear_mobile">
                     <p class="che_nome">Com EAR</p>
                 </div>
                 <div class="chech_wrapper">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="com_ear_mobile">
                     <p class="che_nome">Sem EAR</p>
                 </div>
             </div>
         </div>
+
         <div class="btn_send">
             Próxima
         </div>
     </section>
+
+
+    <div class="form_uti_mobile">
+        <div class="formulario_utiliatio">
+            <div class="finput">
+                <div class="fi_nome">Nome completo do dono da ANTT(Beneficiário)</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">CPF/ CNPJ do Beneficiário</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Telefone do Beneficiário</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Endereço do Beneficiário</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Número da casa</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Cidade</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Documentos necessários:</div>
+                <input id='nome_mobile' class="maimo" type="file">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">E-mail do Beneficiário</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Cartão de pedágio</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Cartão de frete</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Observação</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+
+        </div>
+
+    </div>
+
+    <div class="form_passeio">
+        <div class="formulario_passeio">
+            <div class="finput">
+                <div class="fi_nome">CNPJ do Motorista</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Nome completo do dono da ANTT(Beneficiário)</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Endereço do Motorista</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Número do casa</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Cidade</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Documentos dos veículos:</div>
+                <input id='nome_mobile' class="maimo" type="file">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">E-mail do Motorista</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Cartão de pedágio</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Cartão de frete</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+            <div class="finput">
+                <div class="fi_nome">Observações</div>
+                <input id='nome_mobile' class="maimo" type="text">
+            </div> 
+        </div>
+    </div>
 
     <section class="form_web">
         <p class="cfw">Olá, nome_atendente, Bem vindo à Planilha de cadastros de veículos DHL/Shopee LM</p>
@@ -90,29 +190,31 @@
             <div class="wf1">
                 <div class="wfi">
                     <p>Hub de carregamento</p>
-                    <select class="manipulacao_input" name="" id=""></select>
+                    <select class="manipulacao_input" name="" id="hub_web">
+                        <option value="eduardo">eduardo</option>
+                    </select>
                 </div>
                 <div class="wfi">
                     <p>Nome completo do motorista:</p>
-                    <input type="text" class="manipulacao_input" name="" id="">
+                    <input type="text" class="manipulacao_input" name="" id="nome_web">
                 </div>
                 <div class="wfi">
                     <p>CPF do motorista:</p>
-                    <input type="text" class="manipulacao_input" name="" id="">
+                    <input type="text" class="manipulacao_input" name="" id="cpf_web">
                 </div>
                 <div class="wfi">
                     <p>Telefone do motorista:</p>
-                    <input type="text" class="manipulacao_input" name="" id="">
+                    <input type="text" class="manipulacao_input" name="" id="telefone_web">
                 </div>
                 <div class="wfi">
                     <p>Qual o tipo de veículo:</p>
                     <div class="wrapper_checkbox">
                         <div class="wcpi df-alc">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" name="" id="utilitario_check_web">
                             <p class="checkbox_desc">Utilitário</p>
                         </div>
                         <div class="wcpi df-alc">
-                            <input type="checkbox" name="" id="">                
+                            <input type="checkbox" name="" id="passeio_check_web">
                             <p class="checkbox_desc">Veículo de passeio</p>
                         </div>
                     </div>
@@ -122,43 +224,313 @@
             <div class="wf1">
                 <div class="wfi">
                     <p>Placa do veículo:</p>
-                    <input type="text" class="manipulacao_input" name="" id="">
+                    <input type="text" class="manipulacao_input" name="" id="placa_web">
                 </div>
                 <div class="wfi">
                     <p>Ano do veículo:</p>
-                    <input type="text" class="manipulacao_input" name="" id="">
+                    <input type="text" class="manipulacao_input" name="" id="ano_web">
                 </div>
                 <div class="wfi">
                     <p>Nome de um contato:</p>
-                    <input type="text" class="manipulacao_input" name="" id="">
+                    <input type="text" class="manipulacao_input" name="" id="nome_contato_web">
                 </div>
                 <div class="wfi">
                     <p>Telefone do contato:</p>
-                    <input type="text" class="manipulacao_input" name="" id="">
+                    <input type="text" class="manipulacao_input" name="" id="telefone_contato_web">
                 </div>
                 <div class="wfi">
                     <p>Com ou sem EAR na CNH:</p>
                     <div class="wrapper_checkbox">
                         <div class="wcpi df-alc">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" name="" id="com_ear_web">
                             <p class="checkbox_desc">Com EAR</p>
                         </div>
                         <div class="wcpi df-alc">
-                            <input type="checkbox" name="" id="">                
+                            <input type="checkbox" name="" id="sem_ear_web">
                             <p class="checkbox_desc">Sem EAR</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+        </div>
+        </div>
+
+        <div onclick="proximo_web()" class="btn_formulario_web">Próxima</div>
+    </section>
+
+    <div class="form2_web_passeio">
+        <div class="wrapper_form2">
+            <div class="wpf1">
+                <div class="wfi2">
+                    <label for="cnpj_motorista">CNPJ do Motorista:</label>
+                    <input class="input_wfi2" type="text" id="cnpj_wp" name="cnpj_motorista">
+                </div>
+
+                <div class="wfi2">
+                    <label for="endereco_motorista">Endereço do Motorista:</label>
+                    <input class="input_wfi2" type="text" id="endereco_wp" name="endereco_motorista">
+                </div>
+
+                <div class="wfi2">
+                    <label for="numero_casa">Número da Casa:</label>
+                    <input class="input_wfi2" type="text" id="numero_wp" name="numero_casa">
+                </div>
+
+                <div class="wfi2">
+                    <label for="cidade">Cidade:</label>
+                    <input class="input_wfi2" type="text" id="cidade_wp" name="cidade">
+                </div>
+
+                <div class="wfi2">
+                    <label for="">Envio de imagens</label>
+                    <input type="file" name="" id="imagens_input_wp">
+                </div>
+
+            </div>
+            <div class="wf2"></div>
+            <div class="wpf1">
+                <div class="wfi2">
+                    <label for="email_motorista">E-mail do Motorista:</label>
+                    <input class="input_wfi2" type="email" id="email_motorista_wp" name="email_motorista">
+                </div>
+
+                <div class="wfi2">
+                    <label for="cartao_pedagio">Cartão de Pedágio:</label>
+                    <input class="input_wfi2" type="text" id="cartao_pedagio_wp" name="cartao_pedagio">
+                </div>
+
+                <div class="wfi2">
+                    <label for="cartao_frete">Cartão de Frete:</label>
+                    <input class="input_wfi2" type="text" id="cartao_frete_wp" name="cartao_frete">
+                </div>
+
+                <div class="wfi2">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes_wp" name="observacoes"></textarea>
+                </div>
             </div>
         </div>
 
-        <div class="btn_formulario_web">Próxima</div>
-    </section>
+        <div onclick="verifica_passeio()" class="sucess_btn">
+            Enviar e finalizar!
+        </div>
+    </div>
+
+    <div class="form2_web_utilitario">
+        <div class="wrapper_form2">
+            <div class="wpf1">
+                <div class="wfi2">
+                    <label for="nome_completo">Nome completo do dono da ANTT(Beneficiário):</label>
+                    <input class="input_wfi2" type="text" id="nome_completo_wu" name="nome_completo">
+                </div>
+
+                <div class="wfi2">
+                    <label for="cpf_cnpj">CPF/CNPJ do Beneficiário:</label>
+                    <input class="input_wfi2" type="text" id="cpf_cnpj_wu" name="cpf_cnpj">
+                </div>
+
+                <div class="wfi2">
+                    <label for="telefone">Telefone do Beneficiário:</label>
+                    <input class="input_wfi2" type="text" id="telefone_wu" name="telefone">
+                </div>
+
+                <div class="wfi2">
+                    <label for="endereco">Endereço do Beneficiário:</label>
+                    <input class="input_wfi2" type="text" id="endereco_wu" name="endereco">
+                </div>
+
+                <div class="wfi2">
+                    <label for="numero_casa">Número da Casa:</label>
+                    <input class="input_wfi2" type="text" id="numero_casa_wu" name="numero_casa">
+                </div>
+
+                <div class="wfi2">
+                    <label for="numero_casa">Uploald de imagens</label>
+                    <input type="file" id="upload_imagem_wu" name="numero_casa">
+                </div>
+
+            </div>
+            <div class="wf2"></div>
+            <div class="wpf1">
+                <div class="wfi2">
+                    <label for="cidade">Cidade:</label>
+                    <input class="input_wfi2" type="text" id="cidade_wu" name="cidade">
+                </div>
+
+                <div class="wfi2">
+                    <label for="email">E-mail do Beneficiário:</label>
+                    <input class="input_wfi2" type="email" id="email_wu" name="email">
+                </div>
+
+                <div class="wfi2">
+                    <label for="cartao_pedagio">Cartão de Pedágio:</label>
+                    <input class="input_wfi2" type="text" id="cartao_pedagio_wu" name="cartao_pedagio">
+                </div>
+
+                <div class="wfi2">
+                    <label for="cartao_frete">Cartão de Frete:</label>
+                    <input class="input_wfi2" type="text" id="cartao_frete_wu" name="cartao_frete">
+                </div>
+
+                <div class="wfi2">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes_wu" name="observacoes"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <div onclick="verifica_utilitatio()" class="sucess_btn">
+            Enviar e finalizar!
+        </div>
+    </div>
 
     <script>
+
+        const hub_web = document.querySelector('#hub_web');
+        const nome_web = document.querySelector('#nome_web');
+        const cpf_web = document.querySelector('#cpf_web');
+        const telefone_web = document.querySelector('#telefone_web');
+        const placa_web = document.querySelector('#placa_web');
+        const ano_web = document.querySelector('#ano_web');
+        const nome_contato_web = document.querySelector('#nome_contato_web');
+        const telefone_contato_web = document.querySelector('#telefone_contato_web');
+        const utilitario_check_web = document.querySelector('#utilitario_check_web');
+        const passeio_check_web = document.querySelector('#passeio_check_web');
+        const com_ear_web = document.querySelector('#com_ear_web');
+        const sem_ear_web = document.querySelector('#sem_ear_web');
+        const form_web = document.querySelector('.form_web');
+        const form2_web_passeio = document.querySelector('.form2_web_passeio');
+        const form2_web_utilitario = document.querySelector('.form2_web_utilitario');
+
+
+        const hub_mobile = document.querySelector('#hub_mobile');
+        const nome_mobile = document.querySelector('#nome_mobile');
+        const cpf_mobile = document.querySelector('#cpf_mobile');
+        const telefone_mobile = document.querySelector('#telefone_mobile');
+        const placa_mobile = document.querySelector('#placa_mobile');
+        const ano_mobile = document.querySelector('#ano_mobile');
+        const nome_contato_mobile = document.querySelector('#nome_contato_mobile');
+        const telefone_contato_mobile = document.querySelector('#telefone_contato_mobile');
+        const passeio_check_mobile = document.querySelector('#passeio_check_mobile');
+        const utilitario_check_mobile = document.querySelector('#utilitario_check_mobile');
+        const sem_ear_mobile = document.querySelector('#sem_ear_mobile');
+        const com_ear_mobile = document.querySelector('#com_ear_mobile');
+
+        const verifique_mobile = [
+            hub_mobile,
+            nome_mobile,
+            cpf_mobile,
+            telefone_mobile,
+            placa_mobile,
+            ano_mobile,
+            nome_contato_mobile,
+            telefone_contato_mobile
+        ];
+
+        const verifique_web = [
+            hub_web,
+            nome_web,
+            cpf_web,
+            telefone_web,
+            placa_web,
+            ano_web,
+            nome_contato_web,
+            telefone_contato_web
+        ];
+
         
+
+        const objeto = new Object();
+        const ERROR_MESSAGE = 'Por favor, preencher todos os campos!';
+
+        function proximo_web() {
+            for (let input of verifique_web) {
+                if (input.value.length === 0) {
+                    window.alert(ERROR_MESSAGE);
+                    return;
+                }
+            }
+
+            if(utilitario_check_web.checked && passeio_check_web.checked){
+                window.alert('Escolha apenas uma opçao de veículo:');
+                return;
+            }
+
+            if (utilitario_check_web.checked) {
+                form_web.style.display = 'none';
+                form2_web_utilitario.style.display = 'block';
+            }
+
+            if (passeio_check_web.checked) {
+                form_web.style.display = 'none';
+                form2_web_passeio.style.display = 'block';
+            }
+
+            objeto.hub = hub_web.value;
+            objeto.nomeMotorista = nome_web.value;
+            objeto.cpf = cpf_web.value;
+            objeto.telefone = telefone_web.value;
+            objeto.placa = placa_web.value;
+            objeto.ano = ano_web.value;
+            objeto.nomeContato = nome_contato_web.value;
+            objeto.telefoneContato = telefone_contato_web.value;
+            console.log(objeto)
+        }
+
+        function verifica_passeio(){
+            const cnpj_wp = document.querySelector('#cnpj_wp');
+            const endereco_wp = document.querySelector('#endereco_wp');
+            const numero_wp = document.querySelector('#numero_wp');
+            const cidade_wp = document.querySelector('#cidade_wp');
+            const email_motorista_wp = document.querySelector('#email_motorista_wp');
+            const cartao_pedagio_wp = document.querySelector('#cartao_pedagio_wp');
+            const cartao_frete_wp = document.querySelector('#cartao_frete_wp');
+            const observacoes_wp = document.querySelector('#observacoes_wp');
+
+            objeto.cnpj = cnpj_wp.value;
+            objeto.endereco = endereco_wp.value;
+            objeto.numero_casa = numero_wp.value;
+            objeto.cidade = cidade_wp.value;
+            objeto.email_motorista = email_motorista_wp.value;
+            objeto.cartao_pedagio = cartao_pedagio_wp.value;
+            objeto.cartao_teste = cartao_frete_wp.value;
+            objeto.observacoes = observacoes_wp.value;
+
+        }
+
+
+        function verifica_utilitatio(){
+            const nome_completo_wu = document.querySelector('#nome_completo_wu');
+            const cpf_cnpj_wu = document.querySelector('#cpf_cnpj_wu');
+            const telefone_wu = document.querySelector('#telefone_wu');
+            const endereco_wu = document.querySelector('#endereco_wu');
+            const numero_casa_wu = document.querySelector('#numero_casa_wu');
+            const cidade_wu = document.querySelector('#cidade_wu');
+            const email_wu = document.querySelector('#email_wu');
+            const cartao_pedagio_wu = document.querySelector('#cartao_pedagio_wu');
+            const cartao_frete_wu = document.querySelector('#cartao_frete_wu');
+            const observacoes_wu = document.querySelector('#observacoes_wu');
+
+
+            objeto.cnpj = nome_completo_wu.value;
+            objeto.cnpj = cpf_cnpj_wu.value;
+            objeto.cnpj = telefone_wu.value;
+            objeto.cnpj = endereco_wu.value;
+            objeto.cnpj = numero_casa_wu.value;
+            objeto.cnpj = cidade_wu.value;
+            objeto.cnpj = email_wu.value;
+            objeto.cnpj = cartao_pedagio_wu.value;
+            objeto.cnpj = cartao_frete_wu.value;
+            objeto.cnpj = observacoes_wu.value;
+
+        }
+
+
+
+
     </script>
 </body>
+
 </html>
