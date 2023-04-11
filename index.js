@@ -69,3 +69,46 @@ function procuraInfos(valor) {
     }
   });
 }
+
+
+
+
+        // function procuraInfos() {
+        //     const script = document.createElement('script');
+        //     script.src = 'https://apis.google.com/js/api.js';
+        //     script.onload = async () => {
+        //         const { google } = await import('googleapis');
+        //         const keys = await import('./novo dhl 1/credentials.json');
+        //         const client = new google.auth.JWT(
+        //             keys.client_email,
+        //             null,
+        //             keys.private_key,
+        //             ['https://www.googleapis.com/auth/spreadsheets']
+        //         );
+
+        //         const spreadsheetId = '1TsYHgoWVp8JMzyioWMWQGe-ueGpus0WEDkYdgsKzSno';
+        //         const range = 'A1:AL';
+
+        //         const response = await google.sheets({ version: 'v4', auth: client }).spreadsheets.values.get({
+        //             spreadsheetId,
+        //             range,
+        //         });
+
+        //         const rows = response.data.values;
+        //         const searchValue = 'asd1132';
+        //         const columnIndexF = 5; // Coluna F
+        //         const columnIndexes = [34, 35, 36, 37]; // Colunas AI a AL
+        //         const row = rows.find(row => row[columnIndexF] === searchValue);
+
+        //         if (row) {
+        //             const values = columnIndexes.reduce((obj, index) => {
+        //                 obj[index] = row[index];
+        //                 return obj;
+        //             }, {});
+        //             console.log(`Os valores de AI a AL para a placa ${searchValue} são:`, values);
+        //         } else {
+        //             console.log(`Não foi possível encontrar a placa ${searchValue}`);
+        //         }
+        //     };
+
+        // }
