@@ -28,7 +28,7 @@ nav > img {
 }
 
 .form, .form_uti_mobile, .formulario_passeio {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 90%;
   margin: 3vh auto;

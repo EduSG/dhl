@@ -92,47 +92,47 @@
             <div class="finput">
                 <div class="fi_nome">Nome completo do dono da ANTT(Beneficiário)</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">CPF/ CNPJ do Beneficiário</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Telefone do Beneficiário</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Endereço do Beneficiário</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Número da casa</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Cidade</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Documentos necessários:</div>
                 <input id='nome_mobile' class="maimo" type="file">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">E-mail do Beneficiário</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Cartão de pedágio</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Cartão de frete</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Observação</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
 
         </div>
 
@@ -143,43 +143,43 @@
             <div class="finput">
                 <div class="fi_nome">CNPJ do Motorista</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Nome completo do dono da ANTT(Beneficiário)</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Endereço do Motorista</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Número do casa</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Cidade</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Documentos dos veículos:</div>
                 <input id='nome_mobile' class="maimo" type="file">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">E-mail do Motorista</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Cartão de pedágio</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Cartão de frete</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
             <div class="finput">
                 <div class="fi_nome">Observações</div>
                 <input id='nome_mobile' class="maimo" type="text">
-            </div> 
+            </div>
         </div>
     </div>
 
@@ -284,7 +284,7 @@
 
                 <div class="wfi2">
                     <label for="">Envio de imagens</label>
-                    <input type="file" name="" id="imagens_input_wp">
+                    <input type="file" id="inputImagens" accept="image/*" multiple>
                 </div>
 
             </div>
@@ -385,6 +385,9 @@
             Enviar e finalizar!
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
 
     <script>
 
@@ -440,10 +443,21 @@
             telefone_contato_web
         ];
 
-        
+        const traco = '=========';
 
         const objeto = new Object();
         const ERROR_MESSAGE = 'Por favor, preencher todos os campos!';
+
+        function getFormattedTime() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+        }
 
         function proximo_web() {
             for (let input of verifique_web) {
@@ -453,8 +467,14 @@
                 }
             }
 
-            if(utilitario_check_web.checked && passeio_check_web.checked){
-                window.alert('Escolha apenas uma opçao de veículo:');
+            if (utilitario_check_web.checked && passeio_check_web.checked) {
+                window.alert('Escolha apenas uma opçao de tipo de veículo:');
+                return;
+            }
+
+
+            if (utilitario_check_web.checked == false && passeio_check_web.checked == false) {
+                window.alert('Escolha uma ppçao de tipo veículo:');
                 return;
             }
 
@@ -472,14 +492,25 @@
             objeto.nomeMotorista = nome_web.value;
             objeto.cpf = cpf_web.value;
             objeto.telefone = telefone_web.value;
+            if (utilitario_check_web.checked) {
+                objeto.tipo = 'Utilitario';
+            } else {
+                objeto.tipo = 'Passeio';
+            }
             objeto.placa = placa_web.value;
             objeto.ano = ano_web.value;
             objeto.nomeContato = nome_contato_web.value;
             objeto.telefoneContato = telefone_contato_web.value;
+            if (sem_ear_web.checked) {
+                objeto.ear = 'Sem EAR'
+            } else {
+                objeto.ear = 'Com EAR'
+            }
             console.log(objeto)
         }
 
-        function verifica_passeio(){
+        function verifica_passeio() {
+            convertToPDF();
             const cnpj_wp = document.querySelector('#cnpj_wp');
             const endereco_wp = document.querySelector('#endereco_wp');
             const numero_wp = document.querySelector('#numero_wp');
@@ -489,6 +520,15 @@
             const cartao_frete_wp = document.querySelector('#cartao_frete_wp');
             const observacoes_wp = document.querySelector('#observacoes_wp');
 
+            const array_passeio = [cnpj_wp, endereco_wp, numero_wp, cidade_wp, email_motorista_wp, cartao_pedagio_wp, cartao_frete_wp, observacoes_wp];
+
+            array_passeio.forEach(ind => {
+                if (ind.value.length === 0) {
+                    window.alert("Preencha todos os campos necessários!");
+                    return;
+                }
+            });
+
             objeto.cnpj = cnpj_wp.value;
             objeto.endereco = endereco_wp.value;
             objeto.numero_casa = numero_wp.value;
@@ -497,11 +537,63 @@
             objeto.cartao_pedagio = cartao_pedagio_wp.value;
             objeto.cartao_teste = cartao_frete_wp.value;
             objeto.observacoes = observacoes_wp.value;
+            let horario = getFormattedTime();
+
+            const array_envio = [
+                horario,
+                traco,
+                objeto.hub,
+                objeto.nomeMotorista,
+                objeto.cpf,
+                objeto.placa,
+                objeto.ano,
+                objeto.tipo,
+                objeto.cnpj,
+                objeto.endereco,
+                objeto.numero_casa,
+                objeto.cidade,
+                traco, //documentos
+                objeto.email_motorista,
+                traco,
+                traco,
+                traco,
+                traco,
+                traco,
+                traco,
+                traco,
+                objeto.telefone,
+                traco,
+                traco,
+                traco,
+                traco,
+                objeto.ear,
+                traco,
+                objeto.cartao_pedagio,
+                objeto.cartao_teste,
+                traco,
+                traco,
+                traco,
+                objeto.observacoes
+
+            ];
+            console.log(objeto)
+            // fetch('https://tiny-blue-scallop-hose.cyclic.app/adicionar-valores', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         values: array_envio
+            //     })
+            // })
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
+            //     .catch(error => console.error(error));
 
         }
 
 
-        function verifica_utilitatio(){
+        function verifica_utilitatio() {
             const nome_completo_wu = document.querySelector('#nome_completo_wu');
             const cpf_cnpj_wu = document.querySelector('#cpf_cnpj_wu');
             const telefone_wu = document.querySelector('#telefone_wu');
@@ -513,22 +605,110 @@
             const cartao_frete_wu = document.querySelector('#cartao_frete_wu');
             const observacoes_wu = document.querySelector('#observacoes_wu');
 
+            let horario = getFormattedTime();
 
-            objeto.cnpj = nome_completo_wu.value;
-            objeto.cnpj = cpf_cnpj_wu.value;
-            objeto.cnpj = telefone_wu.value;
-            objeto.cnpj = endereco_wu.value;
-            objeto.cnpj = numero_casa_wu.value;
-            objeto.cnpj = cidade_wu.value;
-            objeto.cnpj = email_wu.value;
-            objeto.cnpj = cartao_pedagio_wu.value;
-            objeto.cnpj = cartao_frete_wu.value;
-            objeto.cnpj = observacoes_wu.value;
+            objeto.antt = nome_completo_wu.value;
+            objeto.cnbene = cpf_cnpj_wu.value;
+            objeto.telbene = telefone_wu.value;
+            objeto.endbene = endereco_wu.value;
+            objeto.numerobene = numero_casa_wu.value;
+            objeto.cidadebene = cidade_wu.value;
+            objeto.emailbene = email_wu.value;
+            objeto.cartaop = cartao_pedagio_wu.value;
+            objeto.cartaof = cartao_frete_wu.value;
+            objeto.observacoes = observacoes_wu.value;
+
+            let array_ut = [
+                horario,
+                traco,
+                objeto.hub,
+                objeto.nomeMotorista,
+                objeto.cpf,
+                objeto.placa,
+                objeto.ano,
+                objeto.tipo,
+                objeto.cnpj,
+                objeto.endereco,
+                objeto.numero_casa,
+                objeto.cidade,
+                traco, //documentos
+                traco, //email motorista
+                objeto.antt,
+                objeto.cnbene,
+                objeto.endbene,
+                objeto.numerobene,
+                objeto.cidadebene,
+                traco, // documentos
+                objeto.emailbene,
+                objeto.telefone,
+                objeto.telbene,
+                objeto.nomeContato,
+                objeto.telefoneContato,
+                traco,
+                objeto.ear,
+                objeto.cartao_pedagio,
+                objeto.cartao_teste,
+                traco,
+                traco,
+                traco,
+                traco,
+                objeto.observacoes
+            ];
+
+            fetch('https://tiny-blue-scallop-hose.cyclic.app/adicionar-valores', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    values: array_ut
+                })
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
 
         }
 
-
-
+        function convertToPDF() {
+        // Obtém as imagens selecionadas no input
+        const input = document.getElementById('inputImagens');
+        const imagens = input.files;
+        // Define as configurações do PDF
+        const config = {
+          pageOrientation: 'portrait',
+          pageSize: 'A4',
+          pageMargins: [40, 60, 40, 60],
+        };
+        
+        // Cria o documento PDF
+        const docDefinition = {
+          pageSize: config.pageSize,
+          pageOrientation: config.pageOrientation,
+          pageMargins: config.pageMargins,
+          content: []
+        };
+        
+        // Adiciona cada imagem ao documento
+        for (let i = 0; i < imagens.length; i++) {
+          const imagem = imagens[i];
+          const reader = new FileReader();
+          
+          // Lê a imagem como um Data URL
+          reader.readAsDataURL(imagem);
+          
+          // Quando a imagem é lida, adiciona ao documento
+          reader.onload = function(event) {
+            const dataURL = event.target.result;
+            docDefinition.content.push({ image: dataURL, width: 500 });
+            
+            // Quando todas as imagens forem adicionadas, gera o PDF
+            if (docDefinition.content.length === imagens.length) {
+              pdfMake.createPdf(docDefinition).download('imagens.pdf');
+            }
+          };
+        }
+      }
 
     </script>
 </body>

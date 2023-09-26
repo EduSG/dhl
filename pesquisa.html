@@ -1,147 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <title>Pesquisa placa</title>
-    <link rel="stylesheet" href="./src/pesquisa.css">
-</head>
+    <link rel="stylesheet" href="./src/pesquisa.css" />
+  </head>
 
-<body>
+  <body>
     <section class="pesquisa_mobile">
-        <div class="wrapper_image">
-            <img src="./src/img/dhl-logo.png" alt="">
+      <div class="wrapper_image">
+        <img src="./src/img/dhl-logo.png" alt="" />
+      </div>
+      <div class="wrapper_pesquisa">
+        <p class="pesquise_texto">Pesquise uma placa</p>
+        <div class="wrapper_input">
+          <input type="text" name="" id="input_text_mobile" />
+          <div class="wi_btn"><i class="bx bx-search"></i></div>
         </div>
-        <div class="wrapper_pesquisa">
-            <p class="pesquise_texto">
-                Pesquise uma placa
-            </p>
-            <div class="wrapper_input">
-                <input type="text" name="" id="input_text_mobile">
-                <div class="wi_btn"><i class='bx bx-search'></i></div>
-            </div>
-            <div class="btn_preenche">
-                Preencher formulário
-            </div>
-        </div>
+        <div class="btn_preenche">Preencher formulário</div>
+      </div>
     </section>
     <section class="pesquisa_web">
-        <div class="wrapper_logo">
-            <img src="./src/img/dhl-white 1.png" alt="">
-        </div>
-        <div class="wrapper_pesquisa">
-            <input id="input_text_web" type="text">
-            <div class="entrar"><i class='bx bx-search'></i></div>
-        </div>
-        <div class="preencher_formulario_web">
-            Preencher formulário!
-        </div>
+      <div class="wrapper_logo">
+        <img src="./src/img/dhl-white 1.png" alt="" />
+      </div>
+      <div class="wrapper_pesquisa">
+        <input id="input_text_web" type="text" />
+        <div class="entrar"><i class="bx bx-search"></i></div>
+      </div>
+      <div class="preencher_formulario_web">Preencher formulário!</div>
     </section>
 
-
     <div class="infos_recebidas">
-        <div class="voltar">&lArr;</div>
-        <div class="wrapper_logo">
-            <img src="./src/img/dhl-white 1.png" alt="">
+      <div class="voltar">&lArr;</div>
+      <div class="wrapper_logo">
+        <img src="./src/img/dhl-white 1.png" alt="" />
+      </div>
+      <div class="wrapper_infos_recebidas">
+        <div class="link_fecth">
+          <p class="ldp">Link do contrato:</p>
+          <p id="ldc_content" class="ldp"></p>
         </div>
-        <div class="wrapper_infos_recebidas">
-
+        <div class="link_fecth">
+          <p class="ldp">Link do Pamcary:</p>
+          <p id="ldp_content" class="ldp"></p>
         </div>
+        <div class="link_fecth">
+          <p class="ldp">Status:</p>
+          <p id="lds_content" class="ldp"></p>
+        </div>
+        <div class="link_fecth">
+          <p class="ldp">Pendências:</p>
+          <p id="ldpe_content" class="ldp"></p>
+        </div>
+      </div>
     </div>
 
-    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      const placa_web = document.querySelector("#input_text_web");
+      const placa_mobile = document.querySelector("#input_text_mobile");
+      const pesquisa_web = document.querySelector(".pesquisa_web");
+      const pesquisa_mobile = document.querySelector(".pesquisa_mobile");
+      const infos_recebidas = document.querySelector(".infos_recebidas");
+      const none = "none";
+      const flex = "flex";
 
-    <script type="module">
-        import { google } from 'googleapis';
-        const keys = require('./credentials.json');
+      function none_flex(elemento_none, elemento_flex) {
+        elemento_none.style.display = none;
+        elemento_flex.style.display = flex;
+      }
 
-        function atu(auth) {
-    
-            const client = new google.auth.JWT(
-                keys.client_email,
-                null,
-                keys.private_key,
-                ['https://www.googleapis.com/auth/spreadsheets']
-            );
-    
-            // ID da planilha e range da última linha
-            const spreadsheetId = '1TsYHgoWVp8JMzyioWMWQGe-ueGpus0WEDkYdgsKzSno';
-            const range = 'A:A';
-    
-            // Novos valores para a última linha
-            const newValues = ['carro', 'moto', 'caminhao', 'van'];
-    
-            // Adiciona os novos valores na última linha
-            google.sheets({ version: 'v4', auth: client }).spreadsheets.values.append({
-                spreadsheetId,
-                range,
-                valueInputOption: 'RAW',
-                insertDataOption: 'INSERT_ROWS',
-                resource: {
-                    values: [newValues],
-                },
-            }, (err, res) => {
-                if (err) return console.log(`Erro ao adicionar os valores: ${err}`);
-                console.log(`Valores adicionados com sucesso!`);
-            });
+      const procurar_web = document.querySelector(".entrar");
+      procurar_web.addEventListener("click", (e) => {
+        none_flex(pesquisa_web, infos_recebidas);
+        abc(placa_web.value);
+      });
+
+      const procurar_mobile = document.querySelector(".wi_btn");
+      procurar_mobile.addEventListener("click", (e) => {
+        none_flex(pesquisa_mobile, infos_recebidas);
+        procuraInfos(placa_mobile.value);
+      });
+
+      const voltar = document.querySelector(".voltar");
+      voltar.addEventListener("click", (e) => {
+        const width = window.innerWidth;
+        if (width < 600) {
+          none_flex(infos_recebidas, pesquisa_mobile);
+        } else {
+          none_flex(infos_recebidas, pesquisa_web);
         }
-    
-        const placa_web = document.querySelector('#input_text_web');
-        const placa_mobile = document.querySelector('#input_text_mobile');
-        const pesquisa_web = document.querySelector('.pesquisa_web')
-        const pesquisa_mobile = document.querySelector('.pesquisa_mobile')
-        const infos_recebidas = document.querySelector('.infos_recebidas')
-        const none = 'none';
-        const flex = 'flex';
-    
-        function none_flex(elemento_none, elemento_flex) {
-            elemento_none.style.display = none;
-            elemento_flex.style.display = flex;
-        }
-    
-        const procurar_web = document.querySelector('.entrar')
-        procurar_web.addEventListener('click', e => {
-   
-            const client = new google.auth.JWT(
-                keys.client_email,
-                null,
-                keys.private_key,
-                ['https://www.googleapis.com/auth/spreadsheets']
-            );
-    
-            client.authorize(function(err, tokens) {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                none_flex(pesquisa_web, infos_recebidas);
-                atu(client);
-            });
-        });
-    
-        const procurar_mobile = document.querySelector('.wi_btn')
-        procurar_mobile.addEventListener('click', e => {
-            none_flex(pesquisa_mobile, infos_recebidas);
-        });
-    
-        const voltar = document.querySelector('.voltar');
-        voltar.addEventListener('click', e => {
-            const width = window.innerWidth;
-            if (width < 600) {
-                none_flex(infos_recebidas, pesquisa_mobile);
-            } else {
-                none_flex(infos_recebidas, pesquisa_web);
-    
-            }
-        });
+      });
+
+      function abc(valor) {
+        fetch(`https://tiny-blue-scallop-hose.cyclic.app//dados-do-sheets?placa=${valor}`)
+          .then((response) => response.json())
+          .then((data) => atribui_itens(data))
+          .catch((error) => console.error(error));
+      }
+
+      function atribui_itens(informacoes){
+        const ldc = document.querySelector('#ldc_content');
+        const ldp = document.querySelector('#ldp_content');
+        const lds = document.querySelector('#lds_content');
+        const ldpe = document.querySelector('#ldpe_content');
+
+        ldc.innerHTML = informacoes[34];
+        ldp.innerHTML = informacoes[35];
+        lds.innerHTML = informacoes[36];
+        ldpe.innerHTML = informacoes[37];
+        
+      }
     </script>
-    
-
-
-</body>
-
+  </body>
 </html>
